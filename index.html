@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="utilties.css">
+  <link rel="stylesheet" href="style.css">
+  <title>HTLA | E-commerce product page</title>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.1/font/bootstrap-icons.css">
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+  </style>
+
+  <script src="main.js" defer></script>
+</head>
+<body>
+  <nav class="navbar flex">
+    <div class="left-side-navbar flex">
+      <img src="images/icon-menu.svg" class="menu" onclick="openMenu()" alt="">
+      <img src="images/logo.svg" alt="sneaker logo">
+      <ul class="text-dark-gray-blue" id="menu-container">
+        <img src="images/icon-close.svg" class="menu-close" onclick="closeMenu()">
+        <li>Collections</li>
+        <li>Men</li>
+        <li>Women</li>
+        <li>About</li>
+        <li>Contact</li>
+      </ul>
+    </div>
+    <div class="right-side-navbar flex">
+      <div class="cart-icon-container">
+        <img onclick="openCart(true)" src="images/icon-cart.svg" class="cart" id="cart" alt="cart">
+        <button class="itemCountShow hidden"></button>
+      </div>
+      <div class="cart-item">
+        <img onclick="openCart(false)" id="close" src="images/icon-close.svg" alt="">
+        <h3 class="text-black cart-title">Cart</h3>
+      </div>
+      <img src="images/image-avatar.png" class="avatar" alt="profile-pic">
+    </div>
+
+    <div class="line"></div>
+  </nav>
+
+  <!-- main content section -->
+  <section class="main-container flex">
+    <aside class="main-img-container">
+      <img src="images/icon-previous.svg" alt="" id="popup-next-btn" class= "small-screen-btn" onclick="changeMainImg(false)" >
+      <img src="images/icon-next.svg" alt="" id="popup-previous-btn" class= "small-screen-btn" onclick="changeMainImg(true)">
+      <img src="images/image-product-1.jpg" class="main-img-show" id="mainImg" onclick="showPopup(true)">
+      <div class="bottom-img-row flex">
+        <div class="small-img-container active-border">
+          <img src="images/image-product-1-thumbnail.jpg" class="current-img-display smallImg" onclick="changeSmallImg(0)" alt="">
+        </div>
+
+        <div class="small-img-container">
+          <img src="images/image-product-2-thumbnail.jpg" onclick="changeSmallImg(1)" class="smallImg" alt="">
+        </div>
+
+        <div class="small-img-container">
+          <img src="images/image-product-3-thumbnail.jpg" onclick="changeSmallImg(2)" class="smallImg" alt="">
+        </div>
+
+        <div class="small-img-container">
+          <img src="images/image-product-4-thumbnail.jpg" onclick="changeSmallImg(3)" class="smallImg" alt="">
+        </div>
+
+      </div>
+    </aside>
+    <main class="main-detail-container">
+      <h3 class="text-orange title">Sneaker Company</h3>
+      <h1 class="text-black my-2">Fall Limited Edition Sneakers</h1>
+      <p class="text-dark-gray-blue my-3">  These low-profile sneakers are your perfect casual wear companion Featuring a durable rubber outer sole, they’ll withstand everything the weather can offer.</p>
+
+      <div class="price-row my-1 flex">
+        <div class="flex">
+          <h2 class="text-black">$125.00</h2>
+          <div class="discount-percentage text-orange">50%</div>
+        </div>
+        <h3 class="text-gray-blue discount-text"><s>$250.00</s></h3>
+      </div>
+      
+      <div class="add-to-cart-row flex my-3">
+        <div class="amount-row flex">
+          <img src="images/icon-minus.svg" id="minus" onclick="decrement()" alt="">
+          <p class="amount" id="amount">0</p>
+          <img src="images/icon-plus.svg" id="plus" onclick="increment()"  alt="">
+        </div>
+        <button class="add-to-cart-btn" id="addToCartBtn"><img src="images/icon-cart.svg"> Add to cart</button>
+      </div>
+    </main>
+  </section>
+  
+    <div class="overlay hidden"></div>
+    <div class="popup-img-container hidden">
+      <div class="popup-shoes-img-container hidden">
+      <img src="images/icon-close.svg" alt="" id="popup-close-btn" onclick="showPopup(false)">
+      <img src="images/icon-previous.svg" alt="" id="popup-next-btn" onclick="changePopupMainImg(false)" >
+      <img src="images/icon-next.svg" alt="" id="popup-previous-btn" onclick="changePopupMainImg(true)">
+        <img src="images/image-product-1.jpg" class="main-img-show" id="PopupmainImg" alt="">
+        <div class="bottom-img-row flex">
+          <div class="small-img-container active-border" id="popUpSmallImgContainer">
+            <img src="images/image-product-1-thumbnail.jpg" class="current-img-display popUpSmallImg" >
+          </div>
+  
+          <div class="small-img-container" id="popUpSmallImgContainer">
+            <img src="images/image-product-2-thumbnail.jpg" class="popUpSmallImg">
+          </div>
+  
+          <div class="small-img-container" id="popUpSmallImgContainer">
+            <img src="images/image-product-3-thumbnail.jpg"  class="popUpSmallImg">
+          </div>
+  
+          <div class="small-img-container" id="popUpSmallImgContainer">
+            <img src="images/image-product-4-thumbnail.jpg"  class="popUpSmallImg">
+          </div>
+      </div>
+  </div>
+  <!-- 
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="#">Your Name Here</a>.
+  </div> -->
+</body>
+</html>
